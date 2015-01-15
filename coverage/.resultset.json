@@ -1,0 +1,16 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/jbellone/Projects/netrc-cookbook/spec/unit/recipes/default_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null
+      ]
+    },
+    "timestamp": 1421320350
+  }
+}

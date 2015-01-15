@@ -9,6 +9,8 @@
 include_recipe 'chef-sugar::default'
 include_recipe 'chef-vault::default'
 
+require_chef_gem 'netrc'
+
 # This assumes a certain format for the encrypted data bags that are
 # stored in Chef Vault. Please read documentation to see examples.
 node['netrc']['users'].each do |username|
@@ -17,4 +19,4 @@ node['netrc']['users'].each do |username|
   netrc username do
     machines item['machines']
   end
-end unless node['netrc']['users'].empty
+end unless node['netrc']['users'].empty?

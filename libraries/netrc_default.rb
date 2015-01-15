@@ -5,8 +5,7 @@
 #
 # Copyright (C) 2015 Bloomberg Finance L.P.
 #
-
-require_chef_gem 'netrc'
+require 'netrc'
 
 class Chef
   class Resource::Netrc < Resource

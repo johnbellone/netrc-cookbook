@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'berkshelf'
+gem 'chef-sugar'
+gem 'chef-vault'
 gem 'coveralls', require: false
 gem 'netrc'
 

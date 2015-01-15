@@ -2,8 +2,6 @@ require 'chefspec'
 require 'chefspec/berkshelf'
 require 'coveralls'
 
-require_relative 'support/matchers'
-
 Coveralls.wear!
 
 RSpec.configure do |config|
@@ -36,6 +34,21 @@ at_exit { ChefSpec::Coverage.report! }
 RSpec.shared_context 'recipe tests', type: :recipe do
   let(:chef_run) do
     ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04') do |node, server|
+      node.set['dev_mode'] = true
+      node.set['netrc']['users'] = %w(jbellone)
+      server.create_data_bag('netrc', {
+        'jbellone' => {
+          '_default' => {
+            'machines' => [
+              {
+                'host' => 'test-r1n1.local',
+                'login' => 'jbellone',
+                'password' => 'secretsauce'
+              }
+            ]
+          }
+        }
+      })
     end.converge(described_recipe)
   end
 end
