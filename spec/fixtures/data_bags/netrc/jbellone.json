@@ -1,0 +1,19 @@
+{
+    "id": "jbellone",
+    "_default": {
+    },
+    "test": {
+        "machines": [
+            {
+                "host": "test-r1n1.local",
+                "login": "jbellone",
+                "password": "secretsauce"
+            },
+            {
+                "host": "test-r1n2.local",
+                "login": "jbellone",
+                "password": "secretsauce"
+            }
+        ]
+    }
+}

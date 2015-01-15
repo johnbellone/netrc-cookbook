@@ -9,14 +9,12 @@
 include_recipe 'chef-sugar::default'
 include_recipe 'chef-vault::default'
 
+# This assumes a certain format for the encrypted data bags that are
+# stored in Chef Vault. Please read documentation to see examples.
 node['netrc']['users'].each do |username|
   item = chef_vault_item(node['netrc']['bag_name'], username)[node.chef_environment]
 
-  item['machines'].each do |machine|
-    netrc machine['host'] do
-      user username
-      login machine['login']
-      password machine['password']
-    end
+  netrc username do
+    machines item['machines']
   end
 end unless node['netrc']['users'].empty
