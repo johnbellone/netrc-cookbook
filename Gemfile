@@ -4,6 +4,7 @@ gem 'berkshelf'
 gem 'chef-sugar'
 gem 'chef-vault'
 gem 'coveralls', require: false
+gem 'stove'
 gem 'netrc'
 
 group :development, :test do
