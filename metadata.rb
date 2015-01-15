@@ -4,7 +4,7 @@ maintainer_email 'jbellone@bloomberg.net'
 license          'Apache 2.0'
 description      'Installs/Configures netrc'
 long_description 'Installs/Configures netrc'
-version          '0.1.0'
+version          '0.1.1'
 
 depends 'chef-sugar'
 depends 'chef-vault'
