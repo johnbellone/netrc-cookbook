@@ -1,8 +1,8 @@
 netrc-cookbook
 ==============
 ![Release](http://img.shields.io/github/release/johnbellone/netrc-cookbook.svg)
-[![Build Status](http://img.shields.io/travis/johnbellone/netrc-cookbook.svg)][5]
-[![Code Coverage](http://img.shields.io/coveralls/johnbellone/netrc-cookbook.svg)][6]
+[![Build Status](http://img.shields.io/travis/johnbellone/netrc-cookbook.svg)][4]
+[![Code Coverage](http://img.shields.io/coveralls/johnbellone/netrc-cookbook.svg)][5]
 
 Provides ability to manage netrc files for users with Chef.
 
@@ -78,3 +78,9 @@ The bag item for this example would look like:
     "access_token": "bacon"
 }
 ```
+
+[1]: https://rubygems.org/gems/netrc
+[2]: https://supermarket.chef.io/cookbooks/chef-vault
+[3]: https://supermarket.chef.io/cookbooks/chef-sugar
+[4]: http://travis-ci.org/johnbellone/netrc-cookbook
+[5]: https://coveralls.io/r/johnbellone/netrc-cookbook
