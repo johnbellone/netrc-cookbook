@@ -5,10 +5,9 @@
 #
 # Copyright (C) 2015 Bloomberg Finance L.P.
 #
-require 'netrc'
-
 class Chef
   class Resource::Netrc < Resource
+    require_chef_gem 'netrc'
     include Poise
 
     actions(:create, :remove)
@@ -26,6 +25,7 @@ class Chef
   end
 
   class Provider::Netrc < Provider
+    require_chef_gem 'netrc'
     include Poise
 
     def action_create
