@@ -42,9 +42,11 @@ to create a netrc file for the specified user.
     "id": "jbellone",
     "test": {
         "machines": [
-            "host": "github.com",
-            "login": "johnbellone",
-            "password": "bacon"
+            {
+                "host": "github.com",
+                "login": "johnbellone",
+                "password": "bacon"
+            }
         ]
     },
     "beta-us-east-1": {
