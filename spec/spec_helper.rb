@@ -6,6 +6,7 @@ Coveralls.wear!
 
 RSpec.configure do |config|
   config.color = true
+  config.alias_example_group_to :describe_attribute, type: :attribute
   config.alias_example_group_to :describe_recipe, type: :recipe
   config.alias_example_group_to :describe_resource, type: :resource
 
@@ -30,6 +31,10 @@ RSpec.configure do |config|
 end
 
 at_exit { ChefSpec::Coverage.report! }
+
+RSpec.shared_context 'attribute tests', type: :attribute do
+  let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04').converge('netrc::default') }
+end
 
 RSpec.shared_context 'recipe tests', type: :recipe do
   let(:chef_run) do
