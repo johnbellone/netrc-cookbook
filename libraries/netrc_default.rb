@@ -39,6 +39,8 @@ class Chef
         end
 
         netrc.save
+
+        FileUtils.chown(new_resource.user, new_resource.user, new_resource.path)
       end
     end
 
