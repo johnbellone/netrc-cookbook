@@ -31,8 +31,8 @@ class Chef
         netrc = ::Netrc.read(new_resource.path)
 
         new_resource.machines.each do |m|
-          netrc.new_item(m['host'], m['login'], m['password'])
-        end
+          netrc[ m['host'] ] = m['login'], m['password']
+        end unless new_resource.machines.empty?
 
         if new_resource.host
           newrc[ new_resource.host ] = new_resource.login, new_resource.password
