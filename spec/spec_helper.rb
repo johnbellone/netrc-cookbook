@@ -8,7 +8,8 @@ RSpec.configure do |config|
   config.color = true
   config.alias_example_group_to :describe_attribute, type: :attribute
   config.alias_example_group_to :describe_recipe, type: :recipe
-  config.alias_example_group_to :describe_resource, type: :resource
+  config.alias_example_group_to :describe_resource, type: :library
+  config.alias_example_group_to :describe_provider, type: :library
 
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
@@ -34,6 +35,11 @@ at_exit { ChefSpec::Coverage.report! }
 
 RSpec.shared_context 'attribute tests', type: :attribute do
   let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04').converge('netrc::default') }
+end
+
+RSpec.shared_context 'library tests', type: :library do
+  let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04', step_into: 'netrc').converge(example_recipe) }
+  let(:node) { chef_run.node }
 end
 
 RSpec.shared_context 'recipe tests', type: :recipe do
