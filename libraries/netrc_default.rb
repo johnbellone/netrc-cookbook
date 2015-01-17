@@ -12,7 +12,7 @@ class Chef
     actions(:create, :remove)
 
     attribute(:user, kind_of: String, name_attribute: true)
-    attribute(:path, kind_of: String, default: lazy { File.join(Dir.home(user), Netrc.netrc_filename) })
+    attribute(:path, kind_of: String, default: lazy { ::File.join(::Dir.home(user), ::Netrc.netrc_filename) })
 
     # Add/modify a whole bunch of machines in a single shot.
     attribute(:machines, kind_of: Array, default: [])
@@ -28,17 +28,19 @@ class Chef
 
     def action_create
       converge_by("Write netrc for '#{new_resource.user}'") do
-        netrc = Netrc.read(new_resource.path)
+        netrc = ::Netrc.read(new_resource.path)
 
         new_resource.machines.each do |m|
-          netrc.new_item(m['host'], m['login'], m['password'])
-        end
+          netrc[ m['host'] ] = m['login'], m['password']
+        end unless new_resource.machines.empty?
 
         if new_resource.host
           newrc[ new_resource.host ] = new_resource.login, new_resource.password
         end
 
         netrc.save
+
+        FileUtils.chown(new_resource.user, new_resource.user, new_resource.path)
       end
     end
 
