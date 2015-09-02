@@ -1,15 +1,19 @@
 #
-# Author:: John Bellone (<jbellone@bloomberg.net>)
-# Cookbook Name:: netrc
-# Cookbook:: default
+# Cookbook: netrc
+# License: Apache 2.0
 #
-# Copyright (C) 2015 Bloomberg Finance L.P.
+# Copyright 2015, Bloomberg Finance L.P.
 #
-include_recipe 'chef-vault::default'
-
-chef_gem('netrc') do
-  version node['netrc']['gem_version']
-  action :nothing
-end.run_action(:install)
+if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
+  chef_gem 'netrc' do # ~FC009
+    version '= 0.10.3'
+    compile_time true
+  end
+else
+  chef_gem 'netrc' do
+    version '= 0.10.3'
+    action :nothing
+  end.run_action(:install)
+end
 
 require 'netrc'

@@ -1,11 +1,10 @@
 #
-# Author:: John Bellone (<jbellone@bloomberg.net>)
-# Cookbook Name:: netrc
-# Cookbook:: default
+# Cookbook: netrc
+# License: Apache 2.0
 #
-# Copyright (C) 2015 Bloomberg Finance L.P.
+# Copyright 2015, Bloomberg Finance L.P.
 #
-include_recipe 'netrc::default'
+include_recipe 'chef-vault::default', 'netrc::default'
 
 # This assumes a certain format for the encrypted data bags that are
 # stored in Chef Vault. Please read documentation to see examples.

@@ -1,9 +1,8 @@
 #
-# Author:: John Bellone (<jbellone@bloomberg.net>)
-# Cookbook Name:: netrc
-# Attribute:: default
+# Cookbook: netrc
+# License: Apache 2.0
 #
-# Copyright (C) 2015 Bloomberg Finance L.P.
+# Copyright 2015, Bloomberg Finance L.P.
 #
 
 default['netrc']['bag_name'] = 'netrc'
