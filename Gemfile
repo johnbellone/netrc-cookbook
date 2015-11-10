@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'chef-vault'
+gem 'netrc', '~> 0.11'
 gem 'poise', '~> 2.2'
 gem 'poise-service', '~> 1.0'
 gem 'poise-boiler'

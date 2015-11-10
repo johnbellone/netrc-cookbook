@@ -16,4 +16,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[netrc::default]
+      - recipe[test-netrc::default]

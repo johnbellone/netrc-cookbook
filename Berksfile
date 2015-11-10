@@ -2,5 +2,5 @@ source 'https://supermarket.chef.io'
 metadata
 
 group :test do
-  cookbook 'netrc-spec', path: 'spec/fixtures/cookbooks/netrc-spec'
+  cookbook 'test-netrc', path: 'test/fixtures/cookbooks/test-netrc'
 end

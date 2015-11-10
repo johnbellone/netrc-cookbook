@@ -1,5 +1,5 @@
 #
-# Cookbook: java-service
+# Cookbook: netrc
 # License: Apache 2.0
 #
 # Copyright 2015, Bloomberg Finance L.P.
@@ -9,9 +9,9 @@ require 'fileutils'
 
 module NetrcCookbook
   module Resource
-    class Netrc < Chef::Resource
+    class NetrcFile < Chef::Resource
       include Poise(fused: true)
-      provides(:netrc)
+      provides(:netrc_file)
 
       attribute(:path, kind_of: String, name_attribute: true)
       attribute(:owner, kind_of: String, default: 'root')
@@ -25,7 +25,7 @@ module NetrcCookbook
           netrc = ::Netrc.read(new_resource.path)
 
           new_resource.machines.each do |m|
-            netrc[ m['host'] ] = m['login'], m['password']
+            netrc[m['host']] = m['login'], m['password']
           end
 
           netrc.save
