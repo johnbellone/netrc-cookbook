@@ -4,7 +4,7 @@ maintainer_email 'jbellone@bloomberg.net'
 license 'Apache 2.0'
 description 'Installs/configures netrc'
 long_description 'Installs/Configures netrc'
-version '1.1.0'
+version '1.1.1'
 
 depends 'chef-vault'
 depends 'poise', '~> 2.2'

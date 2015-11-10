@@ -29,7 +29,7 @@ module NetrcCookbook
           end
 
           netrc.save
-          FileUtils.chown(new_resource.user,
+          FileUtils.chown(new_resource.owner,
                           new_resource.group,
                           new_resource.path)
           FileUtils.chmod(new_resource.mode.to_i(8),
